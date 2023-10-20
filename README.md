@@ -14,7 +14,7 @@ Each data set is represented as a sequence of episodes, where each episode is re
 
 ### Dataset colab
 
-We provide a [self-contained colab](https://colab.research.google.com/github/google-deepmind/open_x_embodiment/blob/master/colabs/Open_X_Embodiment_Datasets.ipynb) that demonstrates how to visualize a few episodes from each data set, and how to create batches of data ready for training and inference.
+We provide a [self-contained colab](https://colab.research.google.com/github/google-deepmind/open_x_embodiment/blob/main/colabs/Open_X_Embodiment_Datasets.ipynb) that demonstrates how to visualize a few episodes from each data set, and how to create batches of data ready for training and inference.
 
 ### List of datasets
 
@@ -34,7 +34,7 @@ Please note that the model currently does not take in additional camera images s
 
 The action dimensions we consider include seven variables for the gripper movement (x, y, z, roll, pitch, yaw, opening of the gripper). Each variable represents the absolute value, the delta change to the dimension value or the velocity of the dimension.
 
-[The inference colab](https://colab.research.google.com/github/google-deepmind/open_x_embodiment/blob/master/colabs/Minimal_example_for_running_inference_using_RT_1_X_TF_using_tensorflow_datasets.ipynb) of trained RT-1-X Tensorflow checkpoint demonstrates how to load the model checkpoint, run inference on offline episodes and overlay the predicted and ground truth action.
+[The inference colab](https://colab.research.google.com/github/google-deepmind/open_x_embodiment/blob/main/colabs/Minimal_example_for_running_inference_using_RT_1_X_TF_using_tensorflow_datasets.ipynb) of trained RT-1-X Tensorflow checkpoint demonstrates how to load the model checkpoint, run inference on offline episodes and overlay the predicted and ground truth action.
 
 ## FAQ and Common Issues
 

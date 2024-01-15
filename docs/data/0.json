@@ -1,0 +1,549 @@
+{
+    "0": {
+        "file_id": 0,
+        "content": "/README.md",
+        "type": "filepath"
+    },
+    "1": {
+        "file_id": 0,
+        "content": "The \"open_x_embodiment\" project provides a unified robotic data format, visualization tools, and licenses under Apache License 2.0 and CC BY 4.0 for inference Colab notebooks.",
+        "type": "summary"
+    },
+    "2": {
+        "file_id": 0,
+        "content": "# Open X-Embodiment\n![](./imgs/teaser.png)\nOpen X-Embodiment aims to provide all open-sourced robotic data in the same unified format, for easy downstream consumption.\nThe first publication using the Open X-Embodiment dataset is [`Open X-Embodiment: Robotic Learning Datasets and RT-X Models`](https://robotics-transformer-x.github.io/)\n## Dataset Access\n### Dataset structure\nEach data set is represented as a sequence of episodes, where each episode is represented using the [RLDS episode format](https://github.com/google-research/rlds#dataset-format).\n### Dataset colab\nWe provide a [self-contained colab](https://colab.research.google.com/github/google-deepmind/open_x_embodiment/blob/main/colabs/Open_X_Embodiment_Datasets.ipynb) that demonstrates how to visualize a few episodes from each data set, and how to create batches of data ready for training and inference.\n### List of datasets\nWe provide the list of dataset that is included as part of the open-sourcing effort and their metadata in [the data",
+        "type": "code",
+        "location": "/README.md:1-21"
+    },
+    "3": {
+        "file_id": 0,
+        "content": "This code is the README file for the \"open_x_embodiment\" project, providing an overview of its purpose and structure. It aims to offer a unified format for robotic data and showcases a self-contained Colab for dataset visualization and batch creation.",
+        "type": "comment"
+    },
+    "4": {
+        "file_id": 0,
+        "content": "set spreadsheet](https://docs.google.com/spreadsheets/d/1rPBD77tk60AEIGZrGSODwyyzs5FgCU9Uz3h-3_t2A9g/edit#gid=0).\n## RT-1-X Model checkpoint\n### Explanation of observation space\nThe model takes as input a RGB image from the robot workspace camera and a task string describing the task that the robot is supposed to perform.\nWhat task the model should perform is communicated to the model purely through the task string. The image communicates to the model the current state of the world, i.e. assuming the model runs at three hertz, every 333 milliseconds, we feed the latest RGB image from a robot workspace camera into the model to obtain the next action to take.\nPlease note that the model currently does not take in additional camera images such as wrist camera images, in hand camera images, or depth.\n### Explanation of action space\nThe action dimensions we consider include seven variables for the gripper movement (x, y, z, roll, pitch, yaw, opening of the gripper). Each variable represents the absolute value, the delta change to the dimension value or the velocity of the dimension.",
+        "type": "code",
+        "location": "/README.md:21-35"
+    },
+    "5": {
+        "file_id": 0,
+        "content": "The code describes an RT-1-X model for robot tasks using RGB images and task strings. It takes input from a workspace camera every 333ms, performs tasks based on the task string, and has an action space with gripper movement variables.",
+        "type": "comment"
+    },
+    "6": {
+        "file_id": 0,
+        "content": "[The inference colab](https://colab.research.google.com/github/google-deepmind/open_x_embodiment/blob/main/colabs/Minimal_example_for_running_inference_using_RT_1_X_TF_using_tensorflow_datasets.ipynb) of trained RT-1-X Tensorflow checkpoint demonstrates how to load the model checkpoint, run inference on offline episodes and overlay the predicted and ground truth action.\n## FAQ and Common Issues\n### Dataset not found\nIf you run into this issue when trying to run `tfds.load({dataset_name})`\n```tensorflow_datasets.core.registered.DatasetNotFoundError: Dataset {dataset_name} not found.```\nTry downloading the dataset manually by running\n```gsutil -m cp -r gs://gdm-robotics-open-x-embodiment/{dataset_name} ~/tensorflow_datasets/```\nOnce you download the dataset like this, you can use the dataset with the regular `tfds.load({dataset_name})` command!\n## Citation\nIf you're using the Open X-Embodiment dataset and RT-X in your research, [please cite](https://robotics-transformer-x.github.io/citation.txt).",
+        "type": "code",
+        "location": "/README.md:37-55"
+    },
+    "7": {
+        "file_id": 0,
+        "content": "The code provides a link to the inference Colab notebook for RT-1-X TensorFlow checkpoints, demonstrating model loading and inference on offline episodes. It also addresses a common issue of dataset not found and resolves it by manually downloading the dataset using gsutil command. Lastly, it suggests citing the provided resource if using Open X-Embodiment dataset or RT-X in research.",
+        "type": "comment"
+    },
+    "8": {
+        "file_id": 0,
+        "content": " If you're specifically using datasets that have been contributed to the joint effort, please cite those as well. The [dataset spreadsheet](https://docs.google.com/spreadsheets/d/1rPBD77tk60AEIGZrGSODwyyzs5FgCU9Uz3h-3_t2A9g/edit#gid=0) contains the citation for each dataset for your convenience.\n## License and Disclaimer\nThis is not an official Google product.\nCopyright 2023 DeepMind Technologies Limited.\n- All software is licensed under the Apache License, Version 2.0 (Apache 2.0); you may not use this file except in compliance with the Apache 2.0 license. You may obtain a copy of the Apache 2.0 license at: https://www.apache.org/licenses/LICENSE-2.0\n- All other materials are licensed under the Creative Commons Attribution 4.0 International License (CC-BY). You may obtain a copy of the CC-BY license at: https://creativecommons.org/licenses/by/4.0/legalcode\n- Unless required by applicable law or agreed to in writing, all software and materials distributed here under the Apache 2.0 or CC-BY l",
+        "type": "code",
+        "location": "/README.md:55-67"
+    },
+    "9": {
+        "file_id": 0,
+        "content": "This code snippet provides information about citing datasets used in a joint effort, and includes a dataset spreadsheet for convenience. It also states that the software is licensed under Apache License 2.0 while other materials are licensed under Creative Commons Attribution 4.0 International License.",
+        "type": "comment"
+    },
+    "10": {
+        "file_id": 0,
+        "content": "icenses are distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the licenses for the specific language governing permissions and limitations under those licenses.",
+        "type": "code",
+        "location": "/README.md:67-67"
+    },
+    "11": {
+        "file_id": 0,
+        "content": "This code snippet is stating that the licenses for this project are provided \"AS IS\" without any warranties or conditions, whether express or implied. The specific language governing permissions and limitations can be found in the relevant licenses mentioned.",
+        "type": "comment"
+    },
+    "12": {
+        "file_id": 1,
+        "content": "/colabs/Minimal_Training_Example.txt",
+        "type": "filepath"
+    },
+    "13": {
+        "file_id": 1,
+        "content": "This code prepares a dataset for training, defines TensorSpec creation functions and transforms episodic RLDS datasets into step-based formats. It also includes agent action mapping functions and visualizes training data using matplotlib's subplots.",
+        "type": "summary"
+    },
+    "14": {
+        "file_id": 1,
+        "content": "# @title Imports\nfrom typing import Any, Dict, Union, NamedTuple\nimport numpy as np\nimport tensorflow_datasets as tfds\nimport rlds\nimport reverb\nfrom rlds import transformations\nimport tensorflow_datasets as tfds\nimport tree\nimport abc\nimport dataclasses\nfrom typing import Dict, Optional\nfrom rlds import rlds_types\nimport tensorflow as tf\nfrom PIL import Image\nfrom IPython import display\nimport tensorflow_datasets as tfds\nimport functools\nfrom typing import Callable, Sequence\nimport matplotlib.pyplot as plt\n# @title Transformation definitions\n# For an example behind the code in this code cell, please take a look at the\n# dataset colab at the link below:\n# https://colab.research.google.com/github/google-deepmind/open_x_embodiment/blob/main/colabs/Open_X_Embodiment_Datasets.ipynb\ndef _features_to_tensor_spec(\n    feature: tfds.features.FeatureConnector\n) -> tf.TensorSpec:\n  \"\"\"Converts a tfds Feature into a TensorSpec.\"\"\"\n  def _get_feature_spec(nested_feature: tfds.features.FeatureConnector):\n    if isinstance(nested_feature, tf.DType):",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:1-39"
+    },
+    "15": {
+        "file_id": 1,
+        "content": "This code is importing necessary libraries and defining a function to convert tfds features into TensorSpec. It also provides a link to an example dataset colab for further reference.",
+        "type": "comment"
+    },
+    "16": {
+        "file_id": 1,
+        "content": "      return tf.TensorSpec(shape=(), dtype=nested_feature)\n    else:\n      return nested_feature.get_tensor_spec()\n  # FeaturesDict can sometimes be a plain dictionary, so we use tf.nest to\n  # make sure we deal with the nested structure.\n  return tf.nest.map_structure(_get_feature_spec, feature)\ndef _encoded_feature(feature: Optional[tfds.features.FeatureConnector],\n                     image_encoding: Optional[str],\n                     tensor_encoding: Optional[tfds.features.Encoding]):\n  \"\"\"Adds encoding to Images and/or Tensors.\"\"\"\n  def _apply_encoding(feature: tfds.features.FeatureConnector,\n                      image_encoding: Optional[str],\n                      tensor_encoding: Optional[tfds.features.Encoding]):\n    if image_encoding and isinstance(feature, tfds.features.Image):\n      return tfds.features.Image(\n          shape=feature.shape,\n          dtype=feature.dtype,\n          use_colormap=feature.use_colormap,\n          encoding_format=image_encoding)\n    if tensor_encoding and isinstance(",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:40-62"
+    },
+    "17": {
+        "file_id": 1,
+        "content": "This code defines a function that adds encoding to images and/or tensors. It uses `tfds.features.Image` for image features, and `tfds.features.Encoding` for tensor features. The code handles nested feature structures using `tf.nest`, and ensures the correct shape and data type for each feature. It also checks if an image or tensor encoding is provided, and applies the corresponding format.",
+        "type": "comment"
+    },
+    "18": {
+        "file_id": 1,
+        "content": "        feature, tfds.features.Tensor) and feature.dtype != tf.string:\n      return tfds.features.Tensor(\n          shape=feature.shape, dtype=feature.dtype, encoding=tensor_encoding)\n    return feature\n  if not feature:\n    return None\n  return tf.nest.map_structure(\n      lambda x: _apply_encoding(x, image_encoding, tensor_encoding), feature)\n@dataclasses.dataclass\nclass RLDSSpec(metaclass=abc.ABCMeta):\n  \"\"\"Specification of an RLDS Dataset.\n  It is used to hold a spec that can be converted into a TFDS DatasetInfo or\n  a `tf.data.Dataset` spec.\n  \"\"\"\n  observation_info: Optional[tfds.features.FeatureConnector] = None\n  action_info: Optional[tfds.features.FeatureConnector] = None\n  reward_info: Optional[tfds.features.FeatureConnector] = None\n  discount_info: Optional[tfds.features.FeatureConnector] = None\n  step_metadata_info: Optional[tfds.features.FeaturesDict] = None\n  episode_metadata_info: Optional[tfds.features.FeaturesDict] = None\n  def step_tensor_spec(self) -> Dict[str, tf.TensorSpec]:\n    \"\"\"Obtains the TensorSpec of an RLDS step.\"\"\"",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:63-89"
+    },
+    "19": {
+        "file_id": 1,
+        "content": "The code snippet defines a dataclass for RLDS dataset specification and includes methods to obtain the TensorSpec of an RLDS step. The class has properties like observation_info, action_info, reward_info, discount_info, step_metadata_info, and episode_metadata_info. It also has an abstract base class metaclass (abc.ABCMeta) and a method for obtaining the TensorSpec of an RLDS step.",
+        "type": "comment"
+    },
+    "20": {
+        "file_id": 1,
+        "content": "    step = {}\n    if self.observation_info:\n      step[rlds_types.OBSERVATION] = _features_to_tensor_spec(\n          self.observation_info)\n    if self.action_info:\n      step[rlds_types.ACTION] = _features_to_tensor_spec(\n          self.action_info)\n    if self.discount_info:\n      step[rlds_types.DISCOUNT] = _features_to_tensor_spec(\n          self.discount_info)\n    if self.reward_info:\n      step[rlds_types.REWARD] = _features_to_tensor_spec(\n          self.reward_info)\n    if self.step_metadata_info:\n      for k, v in self.step_metadata_info.items():\n        step[k] = _features_to_tensor_spec(v)\n    step[rlds_types.IS_FIRST] = tf.TensorSpec(shape=(), dtype=bool)\n    step[rlds_types.IS_LAST] = tf.TensorSpec(shape=(), dtype=bool)\n    step[rlds_types.IS_TERMINAL] = tf.TensorSpec(shape=(), dtype=bool)\n    return step\n  def episode_tensor_spec(self) -> Dict[str, tf.TensorSpec]:\n    \"\"\"Obtains the TensorSpec of an RLDS step.\"\"\"\n    episode = {}\n    episode[rlds_types.STEPS] = tf.data.DatasetSpec(\n        element_spec=self.step_tensor_spec())",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:90-116"
+    },
+    "21": {
+        "file_id": 1,
+        "content": "This code defines an RLDS (Reinforcement Learning Data Structure) class and its methods to create TensorSpec objects for episodes and steps in a dataset. It collects various information like observation, action, discount, reward, step metadata, first/last/terminal status into TensorSpecs and returns them as a dictionary.",
+        "type": "comment"
+    },
+    "22": {
+        "file_id": 1,
+        "content": "    if self.episode_metadata_info:\n      for k, v in self.episode_metadata_info.items():\n        episode[k] = _features_to_tensor_spec(v)\n    return episode\n  def to_dataset_config(\n      self,\n      name: str,\n      image_encoding: Optional[str] = None,\n      tensor_encoding: Optional[tfds.features.Encoding] = None,\n      citation: Optional[str] = None,\n      homepage: Optional[str] = None,\n      description: Optional[str] = None,\n      overall_description: Optional[str] = None,\n  ) -> tfds.rlds.rlds_base.DatasetConfig:\n    \"\"\"Obtains the DatasetConfig for TFDS from the Spec.\"\"\"\n    return tfds.rlds.rlds_base.DatasetConfig(\n        name=name,\n        description=description,\n        overall_description=overall_description,\n        homepage=homepage,\n        citation=citation,\n        observation_info=_encoded_feature(self.observation_info, image_encoding,\n                                          tensor_encoding),\n        action_info=_encoded_feature(self.action_info, image_encoding,\n                                     tensor_encoding),",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:117-142"
+    },
+    "23": {
+        "file_id": 1,
+        "content": "The code defines a method to create a DatasetConfig for TFDS based on the provided specifications, including observation and action information. It also handles metadata related to citation, homepage, and overall description. The code checks if episode_metadata_info is present and converts it to tensors using _features_to_tensor_spec function.",
+        "type": "comment"
+    },
+    "24": {
+        "file_id": 1,
+        "content": "        reward_info=_encoded_feature(self.reward_info, image_encoding,\n                                     tensor_encoding),\n        discount_info=_encoded_feature(self.discount_info, image_encoding,\n                                       tensor_encoding),\n        step_metadata_info=_encoded_feature(self.step_metadata_info,\n                                            image_encoding, tensor_encoding),\n        episode_metadata_info=_encoded_feature(self.episode_metadata_info,\n                                               image_encoding, tensor_encoding))\n  def to_features_dict(self):\n    \"\"\"Returns a TFDS FeaturesDict representing the dataset config.\"\"\"\n    step_config = {\n        rlds_types.IS_FIRST: tf.bool,\n        rlds_types.IS_LAST: tf.bool,\n        rlds_types.IS_TERMINAL: tf.bool,\n    }\n    if self.observation_info:\n      step_config[rlds_types.OBSERVATION] = self.observation_info\n    if self.action_info:\n      step_config[rlds_types.ACTION] = self.action_info\n    if self.discount_info:\n      step_config[rlds_types.DISCOUNT] = self.discount_info",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:143-165"
+    },
+    "25": {
+        "file_id": 1,
+        "content": "The code defines a function `to_features_dict` that returns a TFDS (TensorFlow Dataset Specification) FeaturesDict representing the dataset config. It also includes optional configurations for observation, action, discount, and metadata information. The function takes into account possible reward, discount, and step metadata information. It uses the _encoded_feature function to encode this information.",
+        "type": "comment"
+    },
+    "26": {
+        "file_id": 1,
+        "content": "    if self.reward_info:\n      step_config[rlds_types.REWARD] = self.reward_info\n    if self.step_metadata_info:\n      for k, v in self.step_metadata_info.items():\n        step_config[k] = v\n    if self.episode_metadata_info:\n      return tfds.features.FeaturesDict({\n          rlds_types.STEPS: tfds.features.Dataset(step_config),\n          **self.episode_metadata_info,\n      })\n    else:\n      return tfds.features.FeaturesDict({\n          rlds_types.STEPS: tfds.features.Dataset(step_config),\n      })\nRLDS_SPEC = RLDSSpec\nTENSOR_SPEC = Union[tf.TensorSpec, dict[str, tf.TensorSpec]]\n@dataclasses.dataclass\nclass TrajectoryTransform(metaclass=abc.ABCMeta):\n  \"\"\"Specification the TrajectoryTransform applied to a dataset of episodes.\n  A TrajectoryTransform is a set of rules transforming a dataset\n  of RLDS episodes to a dataset of trajectories.\n  This involves three distinct stages:\n  - An optional `episode_to_steps_map_fn(episode)` is called at the episode\n    level, and can be used to select or modify steps.\n    - Augmentation: an `episode_key` could be propagated to `steps` for",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:166-196"
+    },
+    "27": {
+        "file_id": 1,
+        "content": "The code defines a class for the TrajectoryTransform, which is responsible for transforming RLDS (Reinforcement Learning Dataset) episodes into trajectories. It includes an episode_to_steps_map_fn function that can be used to select or modify steps. The class also utilizes RLDSSpec and TensorSpec types.",
+        "type": "comment"
+    },
+    "28": {
+        "file_id": 1,
+        "content": "      debugging.\n    - Selection: Particular steps can be selected.\n    - Stripping: Features can be removed from steps. Prefer using `step_map_fn`.\n  - An optional `step_map_fn` is called at the flattened steps dataset for each\n    step, and can be used to featurize a step, e.g. add/remove features, or\n    augument images\n  - A `pattern` leverages DM patterns to set a rule of slicing an episode to a\n    dataset of overlapping trajectories.\n  Importantly, each TrajectoryTransform must define a `expected_tensor_spec`\n  which specifies a nested TensorSpec of the resulting dataset. This is what\n  this TrajectoryTransform will produce, and can be used as an interface with\n  a neural network.\n  \"\"\"\n  episode_dataset_spec: RLDS_SPEC\n  episode_to_steps_fn_dataset_spec: RLDS_SPEC\n  steps_dataset_spec: Any\n  pattern: reverb.structured_writer.Pattern\n  episode_to_steps_map_fn: Any\n  expected_tensor_spec: TENSOR_SPEC\n  step_map_fn: Optional[Any] = None\n  def get_for_cached_trajectory_transform(self):\n    \"\"\"Creates a copy of this traj transform to use with caching.",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:197-220"
+    },
+    "29": {
+        "file_id": 1,
+        "content": "This code defines a class for a TrajectoryTransform, which takes an episode dataset and produces a dataset of overlapping trajectories. It specifies the input datasets' structures and provides optional functions to map steps and featurize them. The output is defined by the expected_tensor_spec attribute. This transform can be used with a neural network as it defines a nested TensorSpec for its output.",
+        "type": "comment"
+    },
+    "30": {
+        "file_id": 1,
+        "content": "    The returned TrajectoryTransfrom copy will be initialized with the default\n    version of the `episode_to_steps_map_fn`, because the effect of that\n    function has already been materialized in the cached copy of the dataset.\n    Returns:\n      trajectory_transform: A copy of the TrajectoryTransform with overridden\n        `episode_to_steps_map_fn`.\n    \"\"\"\n    traj_copy = dataclasses.replace(self)\n    traj_copy.episode_dataset_spec = traj_copy.episode_to_steps_fn_dataset_spec\n    traj_copy.episode_to_steps_map_fn = lambda e: e[rlds_types.STEPS]\n    return traj_copy\n  def transform_episodic_rlds_dataset(self, episodes_dataset: tf.data.Dataset):\n    \"\"\"Applies this TrajectoryTransform to the dataset of episodes.\"\"\"\n    # Convert the dataset of episodes to the dataset of steps.\n    steps_dataset = episodes_dataset.map(\n        self.episode_to_steps_map_fn, num_parallel_calls=tf.data.AUTOTUNE\n    ).flat_map(lambda x: x)\n    return self._create_pattern_dataset(steps_dataset)\n  def transform_steps_rlds_dataset(",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:222-244"
+    },
+    "31": {
+        "file_id": 1,
+        "content": "This code defines a class `TrajectoryTransform` that allows transformation of episodic RLDS datasets into step-based datasets. It initializes a copy of the transform with default settings, applies the transformation to episodes datasets, and converts them into step-based datasets for further processing.",
+        "type": "comment"
+    },
+    "32": {
+        "file_id": 1,
+        "content": "      self, steps_dataset: tf.data.Dataset\n  ) -> tf.data.Dataset:\n    \"\"\"Applies this TrajectoryTransform to the dataset of episode steps.\"\"\"\n    return self._create_pattern_dataset(steps_dataset)\n  def create_test_dataset(\n      self,\n  ) -> tf.data.Dataset:\n    \"\"\"Creates a test dataset of trajectories.\n    It is guaranteed that the structure of this dataset will be the same as\n    when flowing real data. Hence this is a useful construct for tests or\n    initialization of JAX models.\n    Returns:\n      dataset: A test dataset made of zeros structurally identical to the\n        target dataset of trajectories.\n    \"\"\"\n    zeros = transformations.zeros_from_spec(self.expected_tensor_spec)\n    return tf.data.Dataset.from_tensors(zeros)\n  def _create_pattern_dataset(\n      self, steps_dataset: tf.data.Dataset) -> tf.data.Dataset:\n    \"\"\"Create PatternDataset from the `steps_dataset`.\"\"\"\n    config = create_structured_writer_config('temp', self.pattern)\n    # Further transform each step if the `step_map_fn` is provided.",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:245-272"
+    },
+    "33": {
+        "file_id": 1,
+        "content": "The code defines a class with methods for creating training and test datasets of trajectories. The `create_training_dataset` method takes a steps dataset as input and applies some transformations to create a pattern dataset. The `create_test_dataset` method creates a test dataset filled with zeros, structurally identical to the target dataset of trajectories. This is useful for tests or initialization of JAX models. The `_create_pattern_dataset` method takes a steps dataset and further transforms each step if a `step_map_fn` is provided.",
+        "type": "comment"
+    },
+    "34": {
+        "file_id": 1,
+        "content": "    if self.step_map_fn:\n      steps_dataset = steps_dataset.map(self.step_map_fn)\n    pattern_dataset = reverb.PatternDataset(\n        input_dataset=steps_dataset,\n        configs=[config],\n        respect_episode_boundaries=True,\n        is_end_of_episode=lambda x: x[rlds_types.IS_LAST])\n    return pattern_dataset\nclass TrajectoryTransformBuilder(object):\n  \"\"\"Facilitates creation of the `TrajectoryTransform`.\"\"\"\n  def __init__(self,\n               dataset_spec: RLDS_SPEC,\n               episode_to_steps_map_fn=lambda e: e[rlds_types.STEPS],\n               step_map_fn=None,\n               pattern_fn=None,\n               expected_tensor_spec=None):\n    self._rds_dataset_spec = dataset_spec\n    self._steps_spec = None\n    self._episode_to_steps_map_fn = episode_to_steps_map_fn\n    self._step_map_fn = step_map_fn\n    self._pattern_fn = pattern_fn\n    self._expected_tensor_spec = expected_tensor_spec\n  def build(self,\n            validate_expected_tensor_spec: bool = True) -> TrajectoryTransform:\n    \"\"\"Creates `TrajectoryTransform` from a `TrajectoryTransformBuilder`.\"\"\"",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:273-301"
+    },
+    "35": {
+        "file_id": 1,
+        "content": "The code defines a `TrajectoryTransformBuilder` class that facilitates the creation of a `TrajectoryTransform`. The builder takes several parameters, including a dataset specification and various transformation functions. It then builds a `TrajectoryTransform` object based on these inputs.",
+        "type": "comment"
+    },
+    "36": {
+        "file_id": 1,
+        "content": "    if validate_expected_tensor_spec and self._expected_tensor_spec is None:\n      raise ValueError('`expected_tensor_spec` must be set.')\n    episode_ds = zero_episode_dataset_from_spec(self._rds_dataset_spec)\n    steps_ds = episode_ds.flat_map(self._episode_to_steps_map_fn)\n    episode_to_steps_fn_dataset_spec = self._rds_dataset_spec\n    if self._step_map_fn is not None:\n      steps_ds = steps_ds.map(self._step_map_fn)\n    zeros_spec = transformations.zeros_from_spec(steps_ds.element_spec)  # pytype: disable=wrong-arg-types\n    ref_step = reverb.structured_writer.create_reference_step(zeros_spec)\n    pattern = self._pattern_fn(ref_step)\n    steps_ds_spec = steps_ds.element_spec\n    target_tensor_structure = create_reverb_table_signature(\n        'temp_table', steps_ds_spec, pattern)\n    if (validate_expected_tensor_spec and\n        self._expected_tensor_spec != target_tensor_structure):\n      raise RuntimeError(\n          'The tensor spec of the TrajectoryTransform doesn\\'t '\n          'match the expected spec.\\n'",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:303-330"
+    },
+    "37": {
+        "file_id": 1,
+        "content": "The code initializes a dataset and applies transformations to create a tensor structure for reverb. It also checks if the expected tensor spec matches the transformed tensor spec, raising an error if they don't match.",
+        "type": "comment"
+    },
+    "38": {
+        "file_id": 1,
+        "content": "          'Expected:\\n%s\\nActual:\\n%s\\n' %\n          (str(self._expected_tensor_spec).replace('TensorSpec',\n                                                   'tf.TensorSpec'),\n           str(target_tensor_structure).replace('TensorSpec', 'tf.TensorSpec')))\n    return TrajectoryTransform(\n        episode_dataset_spec=self._rds_dataset_spec,\n        episode_to_steps_fn_dataset_spec=episode_to_steps_fn_dataset_spec,\n        steps_dataset_spec=steps_ds_spec,\n        pattern=pattern,\n        episode_to_steps_map_fn=self._episode_to_steps_map_fn,\n        step_map_fn=self._step_map_fn,\n        expected_tensor_spec=target_tensor_structure)\ndef zero_episode_dataset_from_spec(rlds_spec: RLDS_SPEC):\n  \"\"\"Creates a zero valued dataset of episodes for the given RLDS Spec.\"\"\"\n  def add_steps(episode, step_spec):\n    episode[rlds_types.STEPS] = transformations.zero_dataset_like(\n        tf.data.DatasetSpec(step_spec))\n    if 'fake' in episode:\n      del episode['fake']\n    return episode\n  episode_without_steps_spec = {",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:331-355"
+    },
+    "39": {
+        "file_id": 1,
+        "content": "The code defines a function `TrajectoryTransform` that takes various parameters, including dataset specifications and transformation functions. It also includes a function called `zero_episode_dataset_from_spec` which creates a zero-valued dataset of episodes for a given RLDS specification by adding steps with zero datasets like the original specification. This code appears to be part of an AI training process related to Reinforcement Learning (RL) and Deep Learning (DL).",
+        "type": "comment"
+    },
+    "40": {
+        "file_id": 1,
+        "content": "      k: v\n      for k, v in rlds_spec.episode_tensor_spec().items()\n      if k != rlds_types.STEPS\n  }\n  if episode_without_steps_spec:\n    episodes_dataset = transformations.zero_dataset_like(\n        tf.data.DatasetSpec(episode_without_steps_spec))\n  else:\n    episodes_dataset = tf.data.Dataset.from_tensors({'fake': ''})\n  episodes_dataset_with_steps = episodes_dataset.map(\n      lambda episode: add_steps(episode, rlds_spec.step_tensor_spec()))\n  return episodes_dataset_with_steps\ndef create_reverb_table_signature(table_name: str, steps_dataset_spec,\n                                  pattern: reverb.structured_writer.Pattern) -> reverb.reverb_types.SpecNest:\n  config = create_structured_writer_config(table_name, pattern)\n  reverb_table_spec = reverb.structured_writer.infer_signature(\n      [config], steps_dataset_spec)\n  return reverb_table_spec\ndef create_structured_writer_config(table_name: str,\n                                    pattern: reverb.structured_writer.Pattern) -> Any:\n  config = reverb.structured_writer.create_config(",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:356-382"
+    },
+    "41": {
+        "file_id": 1,
+        "content": "This code appears to be part of a larger function, potentially involved in data processing for machine learning tasks. It defines a few functions: \"create_structured_writer_config\", \"create_reverb_table_signature\", and possibly another unseen function based on the line numbers provided. The first function, create_structured_writer_config, takes two inputs (a table name and pattern) and returns a config object for use in reverb's structured writer. This seems to be part of an internal library. The second function, create_reverb_table_signature, utilizes the first function and a steps dataset specification to infer a signature for a reverb table spec. Again, this appears to be part of an internal process related to data processing or machine learning tasks.",
+        "type": "comment"
+    },
+    "42": {
+        "file_id": 1,
+        "content": "      pattern=pattern, table=table_name, conditions=[])\n  return config\ndef n_step_pattern_builder(n: int) -> Any:\n  \"\"\"Creates trajectory of length `n` from all fields of a `ref_step`.\"\"\"\n  def transform_fn(ref_step):\n    traj = {}\n    for key in ref_step:\n      if isinstance(ref_step[key], dict):\n        transformed_entry = tree.map_structure(lambda ref_node: ref_node[-n:],\n                                               ref_step[key])\n        traj[key] = transformed_entry\n      else:\n        traj[key] = ref_step[key][-n:]\n    return traj\n  return transform_fn\n# @title Shared map functions\nStepFnMapType = Callable[[rlds.Step, rlds.Step], None]\ndef resize_to_resolution(\n    image: Union[tf.Tensor, np.ndarray],\n    target_width: int = 320,\n    target_height: int = 256,\n    to_numpy: bool = True,\n) -> Union[tf.Tensor, np.ndarray]:\n  \"\"\"Resizes image and casts to uint8.\"\"\"\n  image = tf.image.resize_with_pad(\n      image,\n      target_width=target_width,\n      target_height=target_height,\n  )\n  image = tf.cast(image, tf.uint8)",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:383-420"
+    },
+    "43": {
+        "file_id": 1,
+        "content": "The code defines a function `n_step_pattern_builder` that creates a trajectory of length `n` from all fields of a `ref_step`. It also includes a `resize_to_resolution` function that resizes an image and casts it to uint8. The code uses tf.image.resize_with_pad for resizing and tf.cast for casting the data type.",
+        "type": "comment"
+    },
+    "44": {
+        "file_id": 1,
+        "content": "  if to_numpy:\n    image = image.numpy()\n  return image\ndef map_observation(\n    to_step: rlds.Step,\n    from_step: rlds.Step,\n    from_image_feature_names: tuple[str, ...] = ('image',),\n    to_image_feature_names: tuple[str, ...] = ('image',),\n    resize: bool = True,\n) -> None:\n  \"\"\"Map observation to model observation spec.\"\"\"\n  to_step[rlds.OBSERVATION]['natural_language_embedding'] = from_step[\n      rlds.OBSERVATION\n  ]['natural_language_embedding']\n  for from_feature_name, to_feature_name in zip(\n      from_image_feature_names, to_image_feature_names\n  ):\n    if resize:\n      to_step['observation'][to_feature_name] = resize_to_resolution(\n          from_step['observation'][from_feature_name],\n          to_numpy=False,\n          target_width=320,\n          target_height=256,\n      )\ndef terminate_bool_to_act(terminate_episode: tf.Tensor) -> tf.Tensor:\n  return tf.cond(\n      terminate_episode == tf.constant(1.0),\n      lambda: tf.constant([1, 0, 0], dtype=tf.int32),\n      lambda: tf.constant([0, 1, 0], dtype=tf.int32),",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:421-455"
+    },
+    "45": {
+        "file_id": 1,
+        "content": "This code snippet contains a function that maps an observation from one step to another, resizing the image feature if necessary. It also includes a function that converts a boolean terminate value into an action tensor for the agent. Both functions are used in the Reinforcement Learning Data Sources (rlds) library.",
+        "type": "comment"
+    },
+    "46": {
+        "file_id": 1,
+        "content": "  )\n# @title RT-1 action map function\ndef rt_1_map_action(to_step: rlds.Step, from_step: rlds.Step):\n  to_step[rlds.ACTION] = from_step[rlds.ACTION]\n  del to_step[rlds.ACTION]['base_displacement_vector']\n  del to_step[rlds.ACTION]['base_displacement_vertical_rotation']\n# @title Bridge action map function\ndef rescale_action_with_bound(\n    actions: tf.Tensor,\n    low: float,\n    high: float,\n    safety_margin: float = 0,\n    post_scaling_max: float = 1.0,\n    post_scaling_min: float = -1.0,\n) -> tf.Tensor:\n  \"\"\"Formula taken from https://stats.stackexchange.com/questions/281162/scale-a-number-between-a-range.\"\"\"\n  resc_actions = (actions - low) / (high - low) * (\n      post_scaling_max - post_scaling_min\n  ) + post_scaling_min\n  return tf.clip_by_value(\n      resc_actions,\n      post_scaling_min + safety_margin,\n      post_scaling_max - safety_margin,\n  )\ndef _rescale_action(action):\n  \"\"\"Rescales action.\"\"\"\n  # Values taken from\n  # https://github.com/Asap7772/rt1_eval/blob/2fad77e9bf4def2ef82604d445270f83475e9726/kitchen_eval/rt1_wrapper.py#L39",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:456-493"
+    },
+    "47": {
+        "file_id": 1,
+        "content": "rt_1_map_action() - Maps action from one step to another in the RLDS.\nrescale_action_with_bound() - Rescales tensor actions between low and high values.\n_rescale_action() - Rescales an individual action.",
+        "type": "comment"
+    },
+    "48": {
+        "file_id": 1,
+        "content": "  action['world_vector'] = rescale_action_with_bound(\n      action['world_vector'],\n      low=-0.05,\n      high=0.05,\n      safety_margin=0.01,\n      post_scaling_max=1.75,\n      post_scaling_min=-1.75,\n  )\n  action['rotation_delta'] = rescale_action_with_bound(\n      action['rotation_delta'],\n      low=-0.25,\n      high=0.25,\n      safety_margin=0.01,\n      post_scaling_max=1.4,\n      post_scaling_min=-1.4,\n  )\n  return action\ndef bridge_map_action(to_step: rlds.Step, from_step: rlds.Step):\n  \"\"\"Maps Bridge dataset action to action expected by the model.\"\"\"\n  to_step['action']['world_vector'] = from_step['action']['world_vector']\n  to_step['action']['terminate_episode'] = terminate_bool_to_act(\n      from_step['action']['terminate_episode']\n  )\n  to_step['action']['rotation_delta'] = from_step['action']['rotation_delta']\n  open_gripper = from_step['action']['open_gripper']\n  possible_values = tf.constant([True, False], dtype=tf.bool)\n  eq = tf.equal(possible_values, open_gripper)\n  assert_op = tf.Assert(tf.reduce_any(eq), [open_gripper])",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:494-529"
+    },
+    "49": {
+        "file_id": 1,
+        "content": "This code snippet is responsible for scaling and mapping the Bridge dataset's actions to match the model's expected action format. It rescales the world_vector and rotation_delta values within specified bounds, returns the scaled action, and maps the bridge dataset's action to the model's expected action format by copying relevant fields.",
+        "type": "comment"
+    },
+    "50": {
+        "file_id": 1,
+        "content": "  with tf.control_dependencies([assert_op]):\n    to_step['action']['gripper_closedness_action'] = tf.cond(\n        # for open_gripper in bridge dataset,\n        # 0 is fully closed and 1 is fully open\n        open_gripper,\n        # for Fractal data,\n        # gripper_closedness_action = -1 means opening the gripper and\n        # gripper_closedness_action = 1 means closing the gripper.\n        lambda: tf.constant([-1.0], dtype=tf.float32),\n        lambda: tf.constant([1.0], dtype=tf.float32),\n    )\n  to_step['action'] = _rescale_action(to_step['action'])\n# @title Task Agnostic Robot Play map function\ndef taco_play_rescale_actions_by_bounds(actions, lows, highs, safety_margin=0.01):\n  # Actions is SymbolicTensor, shape (N,)\n  resc_actions = (actions - lows) / (highs - lows) * 2 - 1\n  return tf.clip_by_value(resc_actions, -1 + safety_margin, 1 - safety_margin)\ndef taco_play_rescale_action(action):\n  \"\"\"Rescales actions based on measured per dimension ranges.\"\"\"\n  # Rotation Delta\n  rd_lows = tf.constant([-3.2, -0.8, -1.8])",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:531-558"
+    },
+    "51": {
+        "file_id": 1,
+        "content": "This code snippet is responsible for rescaling the actions of a robot based on its physical range limits. It uses TensorFlow functions like tf.cond and tf.constant to assign gripper closing or opening action based on the dataset used. The rescale_action function is applied to individual actions to normalize them, ensuring they fall within safe limits for the robot's operation.",
+        "type": "comment"
+    },
+    "52": {
+        "file_id": 1,
+        "content": "  rd_highs = tf.constant([3.2, 0.2, 2.5])\n  action['rotation_delta'] = taco_play_rescale_actions_by_bounds(\n      action['rotation_delta'], lows=rd_lows, highs=rd_highs\n  )\n  # World Vector\n  wv_lows = tf.constant([0.0, -0.5, 0.0])\n  wv_highs = tf.constant([0.8, 0.7, 0.6])\n  action['world_vector'] = taco_play_rescale_actions_by_bounds(\n      action['world_vector'], lows=wv_lows, highs=wv_highs\n  )\n  return action\ndef taco_play_map_action(to_step: rlds.Step, from_step: rlds.Step):\n  \"\"\"Maps Taco Play Panda action to action expected by the model.\"\"\"\n  # 'actions' is absolute, and not relative action. There is relative action in\n  # the materialized dataset that can be used for training (not yet supported).\n  actions = from_step[rlds.ACTION]['actions']\n  to_step[rlds.ACTION]['world_vector'] = actions[:3]\n  to_step[rlds.ACTION]['terminate_episode'] = terminate_bool_to_act(\n      from_step[rlds.ACTION]['terminate_episode']\n  )\n  to_step[rlds.ACTION]['rotation_delta'] = actions[3:6]\n  to_step[rlds.ACTION]['gripper_closedness_action'] = tf.expand_dims(",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:559-586"
+    },
+    "53": {
+        "file_id": 1,
+        "content": "rd_highs and rd_lows are used to rescale 'rotation_delta' action values between the lows and highs bounds.\nWorld Vector is also rescaled using wv_lows and wv_highs.\ntaco_play_map_action maps Taco Play Panda action to model's expected action format, including world vector, terminate_episode, rotation_delta, and gripper_closedness_action.",
+        "type": "comment"
+    },
+    "54": {
+        "file_id": 1,
+        "content": "      actions[6], axis=-1\n  )\n  to_step[rlds.ACTION] = _rescale_action(to_step[rlds.ACTION])\ntaco_play_map_observation = functools.partial(\n    map_observation,\n    from_image_feature_names=('rgb_static',),\n    to_image_feature_names=('image',))\n# @title Jaco Play map function\ndef _normalize(value, mean, std):\n  return (value - mean) / std\ndef jaco_play_map_action(to_step: rlds.Step, from_step: rlds.Step):\n  to_step['action']['world_vector'] = _normalize(\n      from_step['action']['world_vector'],\n      mean=tf.constant(\n          [0.00096585, -0.00580069, -0.00395066], dtype=tf.float32\n      ),\n      std=tf.constant([0.12234575, 0.09676983, 0.11155209], dtype=tf.float32),\n  )\n  to_step['action']['gripper_closedness_action'] = from_step['action'][\n      'gripper_closedness_action'\n  ]\n  to_step['action']['terminate_episode'] = from_step['action'][\n      'terminate_episode'\n  ]\n# @title Cable Routing map function\ndef berkeley_cable_routing_map_action(to_step: rlds.Step, from_step: rlds.Step):\n  to_step['action']['world_vector'] = from_step['action']['world_vector']",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:587-625"
+    },
+    "55": {
+        "file_id": 1,
+        "content": "This code defines two functions, `jaco_play_map_action` and `berkeley_cable_routing_map_action`, which map the agent's actions from one representation to another. In `jaco_play_map_action`, the 'world_vector' is normalized using a given mean and standard deviation, while other action components are kept the same. In `berkeley_cable_routing_map_action`, the 'world_vector' remains unchanged but the other action components are also copied over to the new step. Both functions take a current and target step as input and update the target step's action representation based on certain conditions or transformations.",
+        "type": "comment"
+    },
+    "56": {
+        "file_id": 1,
+        "content": "  to_step['action']['rotation_delta'] = from_step['action']['rotation_delta']\n  to_step['action']['terminate_episode'] = terminate_bool_to_act(\n      from_step['action']['terminate_episode']\n  )\n# @title RoboTurk map function\ndef roboturk_map_action(to_step: rlds.Step, from_step: rlds.Step):\n  to_step[rlds.ACTION]['world_vector'] = from_step[rlds.ACTION]['world_vector']\n  to_step[rlds.ACTION]['gripper_closedness_action'] = from_step[rlds.ACTION][\n      'gripper_closedness_action'\n  ]\n  to_step[rlds.ACTION]['rotation_delta'] = from_step[rlds.ACTION]['rotation_delta']\n  to_step[rlds.ACTION]['terminate_episode'] = terminate_bool_to_act(\n      from_step[rlds.ACTION]['terminate_episode']\n  )\nroboturk_map_observation = functools.partial(\n    map_observation,\n    from_image_feature_names=('front_rgb',),\n    to_image_feature_names=('image',)\n)\n# @title NYU VINN map function\ndef nyu_door_opening_surprising_effectiveness_map_action(to_step: rlds.Step, from_step: rlds.Step):\n  \"\"\"Maps dataset action to action expected by the model.\"\"\"",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:626-654"
+    },
+    "57": {
+        "file_id": 1,
+        "content": "This code snippet defines a function `roboturk_map_action` that takes two steps and maps the action from one step to another. It does this by copying over various properties such as `world_vector`, `gripper_closedness_action`, `rotation_delta`, and `terminate_episode`. The function also utilizes the `terminate_bool_to_act` helper function. Additionally, the code defines a `roboturk_map_observation` using `functools.partial` with specific image feature names. Another function, `nyu_door_opening_surprising_effectiveness_map_action`, is also defined to map dataset actions to model-expected actions.",
+        "type": "comment"
+    },
+    "58": {
+        "file_id": 1,
+        "content": "  # The world vector as existed in the dataset on disk ranges from -0.07 to 0.07\n  # We scale by 20.0 so that the action spans the limit of the world_vector\n  # action, from -2.0 to 2.0.\n  to_step['action']['world_vector'] = from_step['action']['world_vector'] * 20.0\n  # Similarly, the rotation_delta in the dataset on disk ranges from -0.07 to\n  # 0.07.\n  # We scale by 15.0 so that the rotation_delta almost spans the limit of\n  # rotation_delta, from -pi/2 to pi/2.\n  to_step['action']['rotation_delta'] = (\n      from_step['action']['rotation_delta'] * 15.0\n  )\n  to_step['action']['gripper_closedness_action'] = (\n      from_step['action']['gripper_closedness_action']\n  )\n  to_step['action']['terminate_episode'] = terminate_bool_to_act(\n      from_step['action']['terminate_episode']\n  )\n# @title Austin VIOLA map function\ndef viola_map_action(to_step: rlds.Step, from_step: rlds.Step):\n  \"\"\"Maps dataset action to action expected by the model.\"\"\"\n  # The world vector as existed in the dataset on disk ranges from -1.0 to 1.0",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:656-683"
+    },
+    "59": {
+        "file_id": 1,
+        "content": "The code scales the action's 'world_vector' by 20.0 and the 'rotation_delta' by 15.0 to ensure they span their respective limits in the model. The 'gripper_closedness_action' remains unchanged, and 'terminate_episode' is processed using terminate_bool_to_act function. The code defines a viola_map_action function that maps dataset action to model-expected action.",
+        "type": "comment"
+    },
+    "60": {
+        "file_id": 1,
+        "content": "  # We scale by 1.75 so that the action better spans the limit of the\n  # world_vector action, from -2.0 to 2.0.\n  to_step[rlds.ACTION]['world_vector'] = from_step[rlds.ACTION]['world_vector'] * 1.75\n  to_step[rlds.ACTION]['terminate_episode'] = terminate_bool_to_act(\n      from_step[rlds.ACTION]['terminate_episode']\n  )\n  # Similarly, the rotation_delta in the dataset on disk ranges from -0.4 to 0.4\n  # We scale by 3.0 so that the rotation_delta almost spans the limit of\n  # rotation_delta, from -pi/2 to pi/2.\n  to_step[rlds.ACTION]['rotation_delta'] = (\n      from_step[rlds.ACTION]['rotation_delta'] * 3.0\n  )\n  gripper_closedness_action = from_step[rlds.ACTION]['gripper_closedness_action']\n  # There can be 0.0 values because of zero padding\n  possible_values = tf.constant([-1.0, 1.0, 0.0], dtype=tf.float32)\n  eq = tf.equal(possible_values, gripper_closedness_action)\n  # Assert that gripper_closedness_action is one of possible_values\n  assert_op = tf.Assert(tf.reduce_any(eq), [gripper_closedness_action])",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:684-705"
+    },
+    "61": {
+        "file_id": 1,
+        "content": "The code scales the world_vector action and rotation_delta for better spanning of their respective limits, handles 0.0 values in gripper_closedness_action by asserting it as one of possible values (-1.0, 1.0, 0.0), and updates the to_step data for further processing.",
+        "type": "comment"
+    },
+    "62": {
+        "file_id": 1,
+        "content": "  with tf.control_dependencies([assert_op]):\n    gripper_closedness_action = tf.expand_dims(\n        gripper_closedness_action, axis=-1\n    )\n    to_step[rlds.ACTION]['gripper_closedness_action'] = gripper_closedness_action\nviola_map_observation = functools.partial(\n    map_observation,\n    from_image_feature_names = ('agentview_rgb',),\n    to_image_feature_names = ('image',),\n)\n# @title Berkeley Autolab UR5 map function\ndef berkeley_autolab_ur5_map_action(to_step: rlds.Step, from_step: rlds.Step):\n  \"\"\"Maps Berkeley Autolab UR5 action to action expected by the model.\"\"\"\n  # The world vector as existed in the dataset on disk ranges from -0.02 to 0.02\n  # We scale by 100.0 so that the action spans the limit of the world_vector\n  # action, from -2.0 to 2.0.\n  to_step[rlds.ACTION]['world_vector'] = (\n      from_step[rlds.ACTION]['world_vector'] * 100.0\n  )\n  to_step[rlds.ACTION]['terminate_episode'] = terminate_bool_to_act(\n      from_step[rlds.ACTION]['terminate_episode']\n  )\n  # Similarly, the rotation_delta in the dataset on disk ranges from -0.07 to",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:707-735"
+    },
+    "63": {
+        "file_id": 1,
+        "content": "This code snippet contains a function that maps Berkeley Autolab UR5 action to the action expected by the model. It scales the world vector and sets the terminate_episode flag based on the input step's action. The gripper_closedness_action is also assigned in this code chunk, along with defining a map_observation function for Viola object detection.",
+        "type": "comment"
+    },
+    "64": {
+        "file_id": 1,
+        "content": "  # 0.07\n  # We scale by 15.0 so that the rotation_delta almost spans the limit of\n  # rotation_delta, from -pi/2 to pi/2.\n  to_step[rlds.ACTION]['rotation_delta'] = (\n      from_step[rlds.ACTION]['rotation_delta'] * 15.0\n  )\n  to_step[rlds.ACTION]['gripper_closedness_action'] = tf.expand_dims(\n      from_step[rlds.ACTION]['gripper_closedness_action'], axis=0\n  )\n# @title TOTO\ndef toto_map_action(to_step: rlds.Step, from_step: rlds.Step):\n  \"\"\"Maps TOTO action to action expected by the model.\"\"\"\n  # The world vector as existed in the dataset on disk ranges from -0.7 to 0.7\n  # We scale by 2.0 so that the action better spans the limit of the\n  # world_vector action, from -2.0 to 2.0.\n  to_step['action']['world_vector'] = from_step['action']['world_vector'] * 2.0\n  to_step['action']['terminate_episode'] = terminate_bool_to_act(\n      from_step['action']['terminate_episode']\n  )\n  to_step['action']['rotation_delta'] = from_step['action']['rotation_delta']\n  to_step['action']['gripper_closedness_action'] = tf.expand_dims(",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:736-761"
+    },
+    "65": {
+        "file_id": 1,
+        "content": "The code is mapping TOTO action to the action expected by the model. It scales certain parameters (rotation_delta and world_vector) so that they span a wider range, improving model input representation. The terminate_episode flag is also copied from previous step. This function helps ensure consistent data format for model training.",
+        "type": "comment"
+    },
+    "66": {
+        "file_id": 1,
+        "content": "      from_step['action']['open_gripper'], axis=0\n  )\n  to_step['action']['gripper_closedness_action'] = tf.cast(\n      to_step['action']['gripper_closedness_action'], tf.float32\n  )\n# @title Create trajectory datasets\ndef pad_initial_zero_steps(\n    steps: tf.data.Dataset, num_zero_step: int\n) -> tf.data.Dataset:\n  zero_steps = steps.take(1)\n  zero_steps = zero_steps.map(lambda x: tf.nest.map_structure(tf.zeros_like, x),\n                              num_parallel_calls=tf.data.AUTOTUNE)\n  zero_steps = zero_steps.repeat(num_zero_step)\n  return rlds.transformations.concatenate(zero_steps, steps)\ndef pad_initial_zero_episode(episode: tf.data.Dataset, num_zero_step: int) -> tf.data.Dataset:\n  episode[rlds.STEPS] = pad_initial_zero_steps(episode[rlds.STEPS], num_zero_step)\n  return episode\ndef get_trajectory_dataset(builder_dir: str, step_map_fn, trajectory_length: int, split='train[:10]'):\n  dataset_builder = tfds.builder_from_directory(builder_dir=builder_dir)\n  dataset_builder_episodic_dataset = dataset_builder.as_dataset(split=split)",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:762-789"
+    },
+    "67": {
+        "file_id": 1,
+        "content": "This code creates trajectory datasets by padding initial zero steps and episodes for an episodic dataset. It defines functions to pad initial zero steps and episodes, and gets a trajectory dataset using tfds builder from a directory with specified step_map_fn, trajectory_length, and split.",
+        "type": "comment"
+    },
+    "68": {
+        "file_id": 1,
+        "content": "  # We need pad_initial_zero_episode because reverb.PatternDataset will skip\n  # constructing trajectories where the first trajectory_length - 1 steps are\n  # the final step in a trajectory. As such, without padding, the policies will\n  # not be trained to predict the actions in the first trajectory_length - 1\n  # steps.\n  # We are padding with num_zero_step=trajectory_length-1 steps.\n  dataset_builder_episodic_dataset = dataset_builder_episodic_dataset.map(\n      functools.partial(pad_initial_zero_episode, num_zero_step=trajectory_length-1), num_parallel_calls=tf.data.AUTOTUNE)\n  rlds_spec = RLDSSpec(\n      observation_info=dataset_builder.info.features[rlds.STEPS][rlds.OBSERVATION],\n      action_info=dataset_builder.info.features[rlds.STEPS][rlds.ACTION],\n  )\n  trajectory_transform = TrajectoryTransformBuilder(rlds_spec,\n                                                    step_map_fn=step_map_fn,\n                                                    pattern_fn=n_step_pattern_builder(trajectory_length)).build(validate_expected_tensor_spec=False)",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:791-807"
+    },
+    "69": {
+        "file_id": 1,
+        "content": "The code is padding the initial zero episode to ensure that policies are trained on the first trajectory_length - 1 steps. This is done using `pad_initial_zero_episode` function with `num_zero_step=trajectory_length-1`. The `RLDS` specification and `TrajectoryTransformBuilder` are also defined for further processing.",
+        "type": "comment"
+    },
+    "70": {
+        "file_id": 1,
+        "content": "  trajectory_dataset = trajectory_transform.transform_episodic_rlds_dataset(dataset_builder_episodic_dataset)\n  return trajectory_dataset\ndef step_map_fn(step, map_observation: StepFnMapType, map_action: StepFnMapType):\n  transformed_step = {}\n  transformed_step[rlds.IS_FIRST] = step[rlds.IS_FIRST]\n  transformed_step[rlds.IS_LAST] = step[rlds.IS_LAST]\n  transformed_step[rlds.IS_TERMINAL] = step[rlds.IS_TERMINAL]\n  transformed_step[rlds.OBSERVATION] = {}\n  transformed_step[rlds.ACTION] = {\n    'gripper_closedness_action': tf.zeros(1, dtype=tf.float32),\n    'rotation_delta': tf.zeros(3, dtype=tf.float32),\n    'terminate_episode': tf.zeros(3, dtype=tf.int32),\n    'world_vector': tf.zeros(3, dtype=tf.float32)\n  }\n  map_observation(transformed_step, step)\n  map_action(transformed_step, step)\n  return transformed_step\nDATASET_NAME_TO_TRAJECTORY_DATASET_KWARGS = {\n    # RT-1\n    'rt_1': {\n        'builder_dir': 'gs://gresearch/robotics/fractal20220817_data/0.1.0',\n        'trajectory_length': 15,\n        'step_map_fn':functools.partial(step_map_fn,",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:809-839"
+    },
+    "71": {
+        "file_id": 1,
+        "content": "The code defines a function for transforming episodic RLDs datasets and creates a dataset builder for an episodic dataset. It also defines a step mapping function, which maps the observations and actions to a transformed step format. The code includes a dictionary that associates a specific dataset name with its trajectory dataset keywords.",
+        "type": "comment"
+    },
+    "72": {
+        "file_id": 1,
+        "content": "                                        map_observation=map_observation,\n                                        map_action=rt_1_map_action)\n    },\n    # TODO: (add Qt-Opt)\n    # Bridge\n    'bridge': {\n        'builder_dir': 'gs://gresearch/robotics/bridge/0.1.0',\n        'trajectory_length': 15,\n        'step_map_fn':functools.partial(step_map_fn,\n                                        map_observation=map_observation,\n                                        map_action=bridge_map_action)\n    },\n    #  Task Agnostic Robot Play\n    'taco_play': {\n        'builder_dir': 'gs://gresearch/robotics/taco_play/0.1.0',\n        'trajectory_length': 15,\n        'step_map_fn':functools.partial(step_map_fn,\n                                        map_observation=taco_play_map_observation,\n                                        map_action=taco_play_map_action)\n    },\n    # Jaco Play\n    'jaco_play': {\n        'builder_dir': 'gs://gresearch/robotics/jaco_play/0.1.0',\n        'trajectory_length': 15,\n        'step_map_fn':functools.partial(step_map_fn,",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:840-864"
+    },
+    "73": {
+        "file_id": 1,
+        "content": "This code defines different tasks or environments for a robot to perform. It includes a bridge, Task Agnostic Robot Play (taco_play), and Jaco Play tasks. Each task has a specified builder directory, trajectory length of 15, and a step map function that takes in corresponding observation and action maps. The code also mentions a TODO item for adding Qt-Opt.",
+        "type": "comment"
+    },
+    "74": {
+        "file_id": 1,
+        "content": "                                        map_observation=map_observation,\n                                        map_action=jaco_play_map_action)\n    },\n    # Cable Routing\n    'berkeley_cable_routing': {\n        'builder_dir': 'gs://gresearch/robotics/berkeley_cable_routing/0.1.0',\n        'trajectory_length': 15,\n        'step_map_fn':functools.partial(step_map_fn,\n                                        map_observation=map_observation,\n                                        map_action=berkeley_cable_routing_map_action)\n    },\n    # Roboturk\n    'roboturk': {\n        'builder_dir': 'gs://gresearch/robotics/roboturk/0.1.0',\n        'trajectory_length': 15,\n        'step_map_fn':functools.partial(step_map_fn,\n                                        map_observation=roboturk_map_observation,\n                                        map_action=roboturk_map_action)\n    },\n    # NYU VINN\n    'nyu_door_opening_surprising_effectiveness': {\n        'builder_dir': 'gs://gresearch/robotics/nyu_door_opening_surprising_effectiveness/0.1.0',",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:865-886"
+    },
+    "75": {
+        "file_id": 1,
+        "content": "This code defines a dictionary of robotics tasks with their respective settings. Each task has a 'builder_dir' for the required resources, a 'trajectory_length' for the action trajectory, and a 'step_map_fn' function that takes in observation maps and action maps to perform specific actions for each task.",
+        "type": "comment"
+    },
+    "76": {
+        "file_id": 1,
+        "content": "        'trajectory_length': 15,\n        'step_map_fn':functools.partial(step_map_fn,\n                                        map_observation=map_observation,\n                                        map_action=nyu_door_opening_surprising_effectiveness_map_action)\n    },\n    # Austin VIOLA\n    'viola': {\n        'builder_dir': 'gs://gresearch/robotics/viola/0.1.0',\n        'trajectory_length': 15,\n        'step_map_fn':functools.partial(step_map_fn,\n                                        map_observation=viola_map_observation,\n                                        map_action=viola_map_action)\n    },\n    # Berkeley Autolab UR5\n    'berkeley_autolab_ur5': {\n        'builder_dir': 'gs://gresearch/robotics/berkeley_autolab_ur5/0.1.0',\n        'trajectory_length': 15,\n        'step_map_fn':functools.partial(step_map_fn,\n                                        map_observation=map_observation,\n                                        map_action=berkeley_autolab_ur5_map_action)\n    },\n    # TODO: (add Language Table)",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:887-908"
+    },
+    "77": {
+        "file_id": 1,
+        "content": "This code defines different robotics models with specific builder directories, trajectory lengths and step mapping functions for each model: 'trajectory_length' is set to 15 for all; 'step_map_fn' is partially applied with corresponding map observation and action for each model.",
+        "type": "comment"
+    },
+    "78": {
+        "file_id": 1,
+        "content": "    'toto': {\n        'builder_dir': 'gs://gresearch/robotics/toto/0.1.0',\n        'trajectory_length': 15,\n        'step_map_fn':functools.partial(step_map_fn,\n                                        map_observation=map_observation,\n                                        map_action=toto_map_action)\n    }\n}\nDATASET_NAME_TO_TRAJECTORY_DATASET = {k: get_trajectory_dataset(**v) for k, v in DATASET_NAME_TO_TRAJECTORY_DATASET_KWARGS.items()}\n# @title Dataset weights\nDATASET_NAME_TO_WEIGHTS = {\n    'rt_1': 150,\n    # 'rlds.kuka': 20,\n    'bridge': 50,\n    'taco_play': 5,\n    'jaco_play': 20,\n    'berkeley_cable_routing': 20,\n    'roboturk': 10,\n    'nyu_door_opening_surprising_effectiveness': 5,\n    'viola': 3,\n    'berkeley_autolab_ur5': 5,\n    # 'language_table.language_table': 30,\n    'toto': 5,\n}\n# @title Batch, and sample one training sample\n# Larger shuffle buffer leads to better performance, but consumes more RAM\ndatasets = []\nweights = []\nfor name, dataset in DATASET_NAME_TO_TRAJECTORY_DATASET.items():\n  datasets.append(dataset.shuffle(10))",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:909-946"
+    },
+    "79": {
+        "file_id": 1,
+        "content": "This code snippet defines a dictionary called `DATASET_NAME_TO_TRAJECTORY_DATASET` that maps dataset names to their corresponding trajectory datasets. Another dictionary, `DATASET_NAME_TO_WEIGHTS`, assigns weights to each dataset for training. The code then shuffles the datasets and appends them to a list called `datasets`. A similar process is done with the weights, which are appended to the `weights` list. This prepares the data for batching and training sample selection.",
+        "type": "comment"
+    },
+    "80": {
+        "file_id": 1,
+        "content": "  weights.append(float(DATASET_NAME_TO_WEIGHTS[name]))\ndataset = tf.data.Dataset.sample_from_datasets(datasets, weights=weights)\n# Larger shuffle buffer leads to better performance, but consumes more RAM\ndataset = dataset.shuffle(1)\ndataset = dataset.batch(6)\ntrajectory_dataset_iter = iter(dataset)\nsample = next(trajectory_dataset_iter)\nImage.fromarray(sample[rlds.OBSERVATION]['image'].numpy()[0][-1])\nsample[rlds.OBSERVATION]['image'].shape\n# @title Visualize one batch of training data\nbatch_size = sample[rlds.OBSERVATION]['image'].shape[0]\ntrajectory_length = sample[rlds.OBSERVATION]['image'].shape[1]\nfig, axs = plt.subplots(nrows=batch_size,\n                        ncols=trajectory_length,\n                        figsize=(30, 10))\nfor batch_index in range(batch_size):\n  for trajectory_index in range(trajectory_length):\n    axs[batch_index, trajectory_index].imshow(\n        sample[rlds.OBSERVATION]['image'][batch_index, trajectory_index])\n    axs[batch_index, trajectory_index].axis('off')\nplt.show()",
+        "type": "code",
+        "location": "/colabs/Minimal_Training_Example.txt:947-979"
+    },
+    "81": {
+        "file_id": 1,
+        "content": "Code snippet prepares a dataset for training, shuffles it, and visualizes one batch of training data by creating subplots with the help of matplotlib. The dataset is defined by `datasets` (which seems to be from another module) and named weights are defined in `DATASET_NAME_TO_WEIGHTS`. The batch size and trajectory length are extracted from the sample, and then the code creates a grid of subplots using matplotlib's `subplots` function. It uses numpy arrays to index into the 'image' data and display it in each subplot. This code seems to be part of a larger training process.",
+        "type": "comment"
+    },
+    "82": {
+        "file_id": 2,
+        "content": "/colabs/Minimal_example_for_running_inference_using_RT_1_X_TF_using_tensorflow_datasets.txt",
+        "type": "filepath"
+    },
+    "83": {
+        "file_id": 2,
+        "content": "This code installs libraries, initializes inference policies and performs inference with dummy input. It creates a dataset object for an episode and includes resizing/scaling functions, displaying images as GIF using TensorFlow. It uses a universal sentence encoder for task string embeddings, initializes policy states, performs model predictions and plotting, comparing ground truth and predicted actions over time.",
+        "type": "summary"
+    },
+    "84": {
+        "file_id": 2,
+        "content": "# Install required library\n# Using tfp-nightly due to https://github.com/tensorflow/probability/issues/1752\n!pip install rlds tf_agents dm-reverb[tensorflow] apache_beam tfp-nightly\n# Download zipped checkpoint folder\n!gsutil -m cp -r gs://gdm-robotics-open-x-embodiment/open_x_embodiment_and_rt_x_oss/rt_1_x_tf_trained_for_002272480_step.zip .\n# Unzip zipped checkpoint folder\n!unzip rt_1_x_tf_trained_for_002272480_step.zip\nimport tensorflow as tf\nimport tensorflow_datasets as tfds\nimport rlds\nfrom PIL import Image\nimport numpy as np\nfrom tf_agents.policies import py_tf_eager_policy\nimport tf_agents\nfrom tf_agents.trajectories import time_step as ts\nfrom IPython import display\nfrom collections import defaultdict\nimport matplotlib.pyplot as plt\nimport tensorflow_hub as hub\ndef as_gif(images):\n  # Render the images as the gif:\n  images[0].save('/tmp/temp.gif', save_all=True, append_images=images[1:], duration=1000, loop=0)\n  gif_bytes = open('/tmp/temp.gif','rb').read()\n  return gif_bytes\n# Load TF model checkpoint",
+        "type": "code",
+        "location": "/colabs/Minimal_example_for_running_inference_using_RT_1_X_TF_using_tensorflow_datasets.txt:1-35"
+    },
+    "85": {
+        "file_id": 2,
+        "content": "This code installs required libraries, downloads and unzips a checkpoint folder, imports necessary modules, defines a function to render images as a GIF, and loads the TF model checkpoint.",
+        "type": "comment"
+    },
+    "86": {
+        "file_id": 2,
+        "content": "# Replace saved_model_path with path to the parent folder of\n# the folder rt_1_x_tf_trained_for_002272480_step.\nsaved_model_path = 'rt_1_x_tf_trained_for_002272480_step'\ntfa_policy = py_tf_eager_policy.SavedModelPyTFEagerPolicy(\n    model_path=saved_model_path,\n    load_specs_from_pbtxt=True,\n    use_tf_function=True)\n# Perform one step of inference using dummy input\n# Obtain a dummy observation, where the features are all 0\nobservation = tf_agents.specs.zero_spec_nest(tf_agents.specs.from_spec(tfa_policy.time_step_spec.observation))\n# Construct a tf_agents time_step from the dummy observation\ntfa_time_step = ts.transition(observation, reward=np.zeros((), dtype=np.float32))\n# Initialize the state of the policy\npolicy_state = tfa_policy.get_initial_state(batch_size=1)\n# Run inference using the policy\naction = tfa_policy.action(tfa_time_step, policy_state)\n# Create a dataset object to obtain episode from\nbuilder = tfds.builder_from_directory(builder_dir='gs://gresearch/robotics/bridge/0.1.0/')\nds = builder.as_dataset(split='train[:1]')",
+        "type": "code",
+        "location": "/colabs/Minimal_example_for_running_inference_using_RT_1_X_TF_using_tensorflow_datasets.txt:36-62"
+    },
+    "87": {
+        "file_id": 2,
+        "content": "This code initializes a policy for running inference on a saved model, performs one step of inference using dummy input, and creates a dataset object to obtain an episode from. The saved model path is provided, and the policy state is initialized before running inference with a time step containing a zeroed observation and reward.",
+        "type": "comment"
+    },
+    "88": {
+        "file_id": 2,
+        "content": "ds_iterator = iter(ds)\n# Obtain the steps from one episode from the dataset\nepisode = next(ds_iterator)\nsteps = episode[rlds.STEPS]\nimages = []\nfor step in steps:\n  im = Image.fromarray(np.array(step['observation']['image']))\n  images.append(im)\nprint(f'{len(images)} images')\ndisplay.Image(as_gif(images))\ndef resize(image):\n  image = tf.image.resize_with_pad(image, target_width=320, target_height=256)\n  image = tf.cast(image, tf.uint8)\n  return image\ndef terminate_bool_to_act(terminate_episode: tf.Tensor) -> tf.Tensor:\n  return tf.cond(\n      terminate_episode == tf.constant(1.0),\n      lambda: tf.constant([1, 0, 0], dtype=tf.int32),\n      lambda: tf.constant([0, 1, 0], dtype=tf.int32),\n  )\ndef rescale_action_with_bound(\n    actions: tf.Tensor,\n    low: float,\n    high: float,\n    safety_margin: float = 0,\n    post_scaling_max: float = 1.0,\n    post_scaling_min: float = -1.0,\n) -> tf.Tensor:\n  \"\"\"Formula taken from https://stats.stackexchange.com/questions/281162/scale-a-number-between-a-range.\"\"\"\n  resc_actions = (actions - low) / (high - low) * (",
+        "type": "code",
+        "location": "/colabs/Minimal_example_for_running_inference_using_RT_1_X_TF_using_tensorflow_datasets.txt:64-103"
+    },
+    "89": {
+        "file_id": 2,
+        "content": "This code defines functions for resizing images, converting terminate_episode boolean to action tensor, and scaling actions. It also displays the number of images in an episode and renders them as a GIF. The code is part of an OpenAI Gym environment implementation using TensorFlow and other libraries.",
+        "type": "comment"
+    },
+    "90": {
+        "file_id": 2,
+        "content": "      post_scaling_max - post_scaling_min\n  ) + post_scaling_min\n  return tf.clip_by_value(\n      resc_actions,\n      post_scaling_min + safety_margin,\n      post_scaling_max - safety_margin,\n  )\ndef rescale_action(action):\n  \"\"\"Rescales action.\"\"\"\n  action['world_vector'] = rescale_action_with_bound(\n      action['world_vector'],\n      low=-0.05,\n      high=0.05,\n      safety_margin=0.01,\n      post_scaling_max=1.75,\n      post_scaling_min=-1.75,\n  )\n  action['rotation_delta'] = rescale_action_with_bound(\n      action['rotation_delta'],\n      low=-0.25,\n      high=0.25,\n      safety_margin=0.01,\n      post_scaling_max=1.4,\n      post_scaling_min=-1.4,\n  )\n  return action\ndef to_model_action(from_step):\n  \"\"\"Convert dataset action to model action. This function is specific for the Bridge dataset.\"\"\"\n  model_action = {}\n  model_action['world_vector'] = from_step['action']['world_vector']\n  model_action['terminate_episode'] = terminate_bool_to_act(\n      from_step['action']['terminate_episode']\n  )\n  model_action['rotation_delta'] = from_step['action']['rotation_delta']",
+        "type": "code",
+        "location": "/colabs/Minimal_example_for_running_inference_using_RT_1_X_TF_using_tensorflow_datasets.txt:104-144"
+    },
+    "91": {
+        "file_id": 2,
+        "content": "The code defines three functions: `rescale_action`, `rescale_action_with_bound`, and `to_model_action`. The `rescale_action` function takes an action as input and scales its 'world_vector' and 'rotation_delta' to a specified range using `rescale_action_with_bound`. Finally, the `to_model_action` function converts a dataset action into a model action for the Bridge dataset.",
+        "type": "comment"
+    },
+    "92": {
+        "file_id": 2,
+        "content": "  open_gripper = from_step['action']['open_gripper']\n  possible_values = tf.constant([True, False], dtype=tf.bool)\n  eq = tf.equal(possible_values, open_gripper)\n  assert_op = tf.Assert(tf.reduce_any(eq), [open_gripper])\n  with tf.control_dependencies([assert_op]):\n    model_action['gripper_closedness_action'] = tf.cond(\n        # for open_gripper in bridge dataset,\n        # 0 is fully closed and 1 is fully open\n        open_gripper,\n        # for Fractal data,\n        # gripper_closedness_action = -1 means opening the gripper and\n        # gripper_closedness_action = 1 means closing the gripper.\n        lambda: tf.constant([-1.0], dtype=tf.float32),\n        lambda: tf.constant([1.0], dtype=tf.float32),\n    )\n  model_action = rescale_action(model_action)\n  return model_action\nsteps = list(steps)\n# Load language model and\nembed = hub.load(\n    'https://tfhub.dev/google/universal-sentence-encoder-large/5')\n# embed the task string\nepisode_natural_language_instruction = steps[0][rlds.OBSERVATION]['natural_language_instruction'].numpy().decode()",
+        "type": "code",
+        "location": "/colabs/Minimal_example_for_running_inference_using_RT_1_X_TF_using_tensorflow_datasets.txt:146-179"
+    },
+    "93": {
+        "file_id": 2,
+        "content": "Code snippet loads a universal sentence encoder, embeds the task string using it and returns the model action by checking if the gripper is open or closed based on the dataset being used. It also scales the action before returning.",
+        "type": "comment"
+    },
+    "94": {
+        "file_id": 2,
+        "content": "def normalize_task_name(task_name):\n  replaced = task_name.replace('_', ' ').replace('1f', ' ').replace(\n      '4f', ' ').replace('-', ' ').replace('50',\n                                           ' ').replace('55',\n                                                        ' ').replace('56', ' ')\n  return replaced.lstrip(' ').rstrip(' ')\nnatural_language_embedding = embed([normalize_task_name(episode_natural_language_instruction)])[0]\n# %%time\npolicy_state = tfa_policy.get_initial_state(batch_size=1)\ngt_actions = []\npredicted_actions = []\nimages = []\nfor step in steps:\n  image = resize(step[rlds.OBSERVATION]['image'])\n  images.append(image)\n  observation['image'] = image\n  tfa_time_step = ts.transition(observation, reward=np.zeros((), dtype=np.float32))\n  policy_step = tfa_policy.action(tfa_time_step, policy_state)\n  action = policy_step.action\n  policy_state = policy_step.state\n  predicted_actions.append(action)\n  gt_actions.append(to_model_action(step))\naction_name_to_values_over_time = defaultdict(list)\npredicted_action_name_to_values_over_time = defaultdict(list)",
+        "type": "code",
+        "location": "/colabs/Minimal_example_for_running_inference_using_RT_1_X_TF_using_tensorflow_datasets.txt:181-217"
+    },
+    "95": {
+        "file_id": 2,
+        "content": "This code defines a function to normalize task names, extracts natural language embeddings from normalized instructions, initializes policy states for the TFA policy, and processes images and observations in a loop. It appends actions and rewards to corresponding lists, creates defaultdicts for action-value pairs over time, and performs model predictions.",
+        "type": "comment"
+    },
+    "96": {
+        "file_id": 2,
+        "content": "figure_layout = ['terminate_episode_0', 'terminate_episode_1',\n        'terminate_episode_2', 'world_vector_0', 'world_vector_1',\n        'world_vector_2', 'rotation_delta_0', 'rotation_delta_1',\n        'rotation_delta_2', 'gripper_closedness_action_0']\naction_order = ['terminate_episode', 'world_vector', 'rotation_delta', 'gripper_closedness_action']\nfor i, action in enumerate(gt_actions):\n  for action_name in action_order:\n    for action_sub_dimension in range(action[action_name].shape[0]):\n      # print(action_name, action_sub_dimension)\n      title = f'{action_name}_{action_sub_dimension}'\n      action_name_to_values_over_time[title].append(action[action_name][action_sub_dimension])\n      predicted_action_name_to_values_over_time[title].append(predicted_actions[i][action_name][action_sub_dimension])\nfigure_layout = [\n    ['image'] * len(figure_layout),\n    figure_layout\n]\nplt.rcParams.update({'font.size': 12})\nstacked = tf.concat(tf.unstack(images[::3], axis=0), 1)\nfig, axs = plt.subplot_mosaic(figure_layout)",
+        "type": "code",
+        "location": "/colabs/Minimal_example_for_running_inference_using_RT_1_X_TF_using_tensorflow_datasets.txt:218-246"
+    },
+    "97": {
+        "file_id": 2,
+        "content": "This code is plotting a graph with multiple data sets. It creates a figure layout, iterates through the actions, and then appends values to two dictionaries based on action names and sub-dimensions. It updates the rcParams for font size and creates stacked images. Finally, it uses plt.subplot_mosaic() to create a figure with the specified layout.",
+        "type": "comment"
+    },
+    "98": {
+        "file_id": 2,
+        "content": "fig.set_size_inches([45, 10])\nfor i, (k, v) in enumerate(action_name_to_values_over_time.items()):\n  axs[k].plot(v, label='ground truth')\n  axs[k].plot(predicted_action_name_to_values_over_time[k], label='predicted action')\n  axs[k].set_title(k)\n  axs[k].set_xlabel('Time in one episode')\naxs['image'].imshow(stacked.numpy())\naxs['image'].set_xlabel('Time in one episode (subsampled)')\nplt.legend()",
+        "type": "code",
+        "location": "/colabs/Minimal_example_for_running_inference_using_RT_1_X_TF_using_tensorflow_datasets.txt:247-259"
+    },
+    "99": {
+        "file_id": 2,
+        "content": "This code plots and compares ground truth and predicted actions over time, sets titles and x-labels, and displays an image with subsampled time data in a matplotlib figure.",
+        "type": "comment"
+    }
+}

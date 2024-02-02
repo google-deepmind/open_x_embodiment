@@ -13,9 +13,9 @@ import jax
 import jax.numpy as jnp
 import numpy as np
 
-from . import efficientnet
-from . import film_conditioning
-from . import token_learner
+import efficientnet
+import film_conditioning
+import token_learner
 
 
 class FFNOptions(enum.Enum):
@@ -230,7 +230,7 @@ class TokenLearnerModuleV11(nn.Module):
 
     selected = nn.LayerNorm()(selected)
 
-    selected = attention_layers.MlpBlock(
+    selected = token_learner.MlpBlock(
         mlp_dim=self.bottleneck_dim,
         out_dim=self.num_tokens,
         dropout_rate=self.dropout_rate,

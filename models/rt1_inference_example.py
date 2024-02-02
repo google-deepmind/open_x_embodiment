@@ -11,7 +11,7 @@ import jax.numpy as jnp
 import numpy as np
 import tensorflow as tf
 
-from . import rt1
+import rt1
 
 
 _CHECKPOINT_PATH = flags.DEFINE_string(
@@ -170,8 +170,8 @@ def main(argv):
 
   # Create a fake observation and run the policy.
   obs = {
-      'image': jnp.ones((1, 15, 300, 300, 3)),
-      'natural_language_embedding': jnp.ones((1, 15, 512)),
+      'image': jnp.ones((15, 300, 300, 3)),
+      'natural_language_embedding': jnp.ones((15, 512)),
   }
 
   print(policy.action(obs))

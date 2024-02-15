@@ -36,6 +36,12 @@ The action dimensions we consider include seven variables for the gripper moveme
 
 [The inference colab](https://colab.research.google.com/github/google-deepmind/open_x_embodiment/blob/main/colabs/Minimal_example_for_running_inference_using_RT_1_X_TF_using_tensorflow_datasets.ipynb) of trained RT-1-X Tensorflow checkpoint demonstrates how to load the model checkpoint, run inference on offline episodes and overlay the predicted and ground truth action.
 
+### RT-1-X jax checkpoint
+
+A jax checkpoint that can be used by the flax checkpoint loader in the [rt1_inference_example.py](https://github.com/google-deepmind/open_x_embodiment/blob/main/models/rt1_inference_example.py) can be downloaded by
+
+```gsutil -m cp -r gs://gdm-robotics-open-x-embodiment/open_x_embodiment_and_rt_x_oss/rt_1_x_jax .```
+
 ## FAQ and Common Issues
 
 ### Dataset not found

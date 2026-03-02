@@ -40,7 +40,7 @@ The action dimensions we consider include seven variables for the gripper moveme
 
 A jax checkpoint that can be used by the flax checkpoint loader in the [rt1_inference_example.py](https://github.com/google-deepmind/open_x_embodiment/blob/main/models/rt1_inference_example.py) can be downloaded by
 
-```gsutil -m cp -r gs://gdm-robotics-open-x-embodiment/open_x_embodiment_and_rt_x_oss/rt_1_x_jax .```
+```gcloud storage cp --recursive gs://gdm-robotics-open-x-embodiment/open_x_embodiment_and_rt_x_oss/rt_1_x_jax .```
 
 ## FAQ and Common Issues
 
@@ -52,7 +52,7 @@ If you run into this issue when trying to run `tfds.load({dataset_name})`
 
 Try downloading the dataset manually by running
 
-```gsutil -m cp -r gs://gdm-robotics-open-x-embodiment/{dataset_name} ~/tensorflow_datasets/```
+```gcloud storage cp --recursive gs://gdm-robotics-open-x-embodiment/{dataset_name} ~/tensorflow_datasets/```
 
 Once you download the dataset like this, you can use the dataset with the regular `tfds.load({dataset_name})` command!
 
